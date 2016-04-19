@@ -11,18 +11,34 @@ import UIKit
 class CalculatorViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var performanceDisplay: UILabel!
     
-    var hasTyped: Bool = false
+    var typedNumber = ""
+    var hasTyped = false
 
     @IBAction func appendDigit(sender: UIButton) {
-        let currentNumber = display.text
-        let number = sender.currentTitle!
+        let numberInput = sender.currentTitle!
+        typedNumber = "\(typedNumber)\(numberInput)"
         if hasTyped {
-            display.text = currentNumber! + number
+            display.text = display.text! + sender.currentTitle!
         } else {
-            display.text = number
+            display.text = sender.currentTitle!
             hasTyped = true
         }
-        
     }
+    
+    
+    @IBAction func operate(sender: UIButton) {
+        hasTyped = false
+        performanceDisplay.text = typedNumber + " " + sender.currentTitle!
+        typedNumber = ""
+    }
+    
+    
+    @IBAction func enter() {
+        hasTyped = false
+        typedNumber = ""
+    }
+    
+
 }
