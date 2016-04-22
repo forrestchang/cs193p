@@ -60,6 +60,8 @@ class CalculatorViewController: UIViewController {
             displayNumber = 0
         }
         
+        var lexer = Lexer(text: "1 + 2")
+        print(lexer.getNextToken())
         
 //        typedNumber = ""
     }

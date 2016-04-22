@@ -21,6 +21,7 @@ class Lexer {
     
     func advance() {
         self.position += 1
+        
         if self.position > self.text.characters.count - 1 {
             self.currentChar = nil
         } else {
@@ -38,7 +39,7 @@ class Lexer {
         var result = ""
         
         while self.currentChar != nil && (isDigit(self.currentChar!) || self.currentChar == ".") {
-            result = "\(result)\(self.currentChar)"
+            result = "\(result)\(self.currentChar!)"
             self.advance()
         }
         
