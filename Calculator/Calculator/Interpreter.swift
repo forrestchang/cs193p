@@ -215,22 +215,23 @@ class Parser {
         }
     }
     
-    func factor() -> Number {
-        var token = self.currentToken
+    func factor() -> Token? {
+        let token = self.currentToken
         
         if token.type == "Operand" {
             self.eat("Operand")
-            return Number(token: token)
+            return Token(type: "Operand", value: String(token.value))
         } else if token.type == String(OperationType.LeftParenthesis) {
             self.eat(String(OperationType.LeftParenthesis))
             let node = self.expr()
             self.eat(String(OperationType.RightParenthesis))
             return node
         }
+        return nil
     }
     
-    func term() -> Number{
-        let node = self.factor()
+    func term() -> Token? {
+        var node = self.factor()
         
         while self.currentToken.type == String(OperationType.Divide) || self.currentToken.type == String(OperationType.Multiply) {
             let token = self.currentToken
@@ -240,13 +241,13 @@ class Parser {
                 self.eat(String(OperationType.Divide))
             }
             
-            let node = BinaryOperation(left: node, op: token, right: self.factor())
+            node = BinaryOperation(left: node!, op: token, right: self.factor()!) as? Token
         }
         
         return node
     }
     
-    func expr() {
+    func expr() -> Token? {
         let node = self.term()
         
         while self.currentToken.type == String(OperationType.Plus) || self.currentToken.type == String(OperationType.Minus) {
@@ -261,11 +262,14 @@ class Parser {
         return node
     }
     
-    func parse() -> Number {
+    func parse() -> Token? {
         return self.expr()
     }
     
 }
+
+
+
 
 
 
