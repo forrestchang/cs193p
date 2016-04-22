@@ -17,6 +17,21 @@ extension Character {
     }
 }
 
+enum TokenType {
+    case Operand(Double)
+    case UnaryOperation(String)
+    case BinaryOperation(String)
+}
+
+enum OperationType: String {
+    case Plus = "+"
+    case Minus = "−"
+    case Multiply = "×"
+    case Divide = "÷"
+    case LeftParenthesis = "("
+    case RightParenthesis = ")"
+    case SquareRoot = "√"
+}
 
 struct Token {
     var type: String
@@ -75,7 +90,7 @@ class Lexer {
         }
         
         if result == "√" {
-            return Token(type: "SquareRoot", value: "√")
+            return Token(type: String(OperationType.SquareRoot), value: OperationType.SquareRoot.rawValue)
         } else {
             return Token(type: "\(result)", value: result)
         }
@@ -95,32 +110,32 @@ class Lexer {
             
             if self.currentChar == "+" {
                 self.advance()
-                return Token(type: "Plus", value: "+")
+                return Token(type: String(OperationType.Plus), value: OperationType.Plus.rawValue)
             }
             
             if self.currentChar == "−" {
                 self.advance()
-                return Token(type: "Minus", value: "−")
+                return Token(type: String(OperationType.Minus), value: OperationType.Minus.rawValue)
             }
             
             if self.currentChar == "×" {
                 self.advance()
-                return Token(type: "Multiply", value: "×")
+                return Token(type: String(OperationType.Multiply), value: OperationType.Multiply.rawValue)
             }
             
             if self.currentChar == "÷" {
                 self.advance()
-                return Token(type: "Divide", value: "÷")
+                return Token(type: String(OperationType.Divide), value: OperationType.Divide.rawValue)
             }
             
             if self.currentChar == "(" {
                 self.advance()
-                return Token(type: "LeftParenthesis", value: "(")
+                return Token(type: String(OperationType.LeftParenthesis), value: OperationType.LeftParenthesis.rawValue)
             }
             
             if self.currentChar == ")" {
                 self.advance()
-                return Token(type: "RightParenthesis", value: ")")
+                return Token(type: String(OperationType.RightParenthesis), value: OperationType.RightParenthesis.rawValue)
             }
             
             if isAlnum(self.currentChar!) || self.currentChar == "_" {
@@ -150,3 +165,120 @@ class Lexer {
     }
     
 }
+
+protocol AST {
+    
+}
+
+struct Number: AST {
+    var token: String
+    var value: Double
+    
+    init(token: Token) {
+        self.token = token.type
+        self.value = Double(token.value!)!
+    }
+}
+
+struct BinaryOperation {
+    var letf: Token
+    var right: Token
+    var op: Token
+    var token: Token
+    
+    init(left: Token, op: Token, right: Token) {
+        self.letf = left
+        self.token = op
+        self.op = op
+        self.right = right
+    }
+}
+
+class Parser {
+    var lexer: Lexer
+    var currentToken: Token
+    
+    init(lexer: Lexer) {
+        self.lexer = lexer
+        self.currentToken = self.lexer.getNextToken()
+    }
+    
+    func error() -> String {
+        return "Error"
+    }
+    
+    func eat(tokenType: String) {
+        if self.currentToken.type == tokenType {
+            self.currentToken = self.lexer.getNextToken()
+        } else {
+            self.error()
+        }
+    }
+    
+    func factor() -> Number {
+        var token = self.currentToken
+        
+        if token.type == "Operand" {
+            self.eat("Operand")
+            return Number(token: token)
+        } else if token.type == String(OperationType.LeftParenthesis) {
+            self.eat(String(OperationType.LeftParenthesis))
+            let node = self.expr()
+            self.eat(String(OperationType.RightParenthesis))
+            return node
+        }
+    }
+    
+    func term() -> Number{
+        let node = self.factor()
+        
+        while self.currentToken.type == String(OperationType.Divide) || self.currentToken.type == String(OperationType.Multiply) {
+            let token = self.currentToken
+            if token.type == String(OperationType.Multiply) {
+                self.eat(String(OperationType.Multiply))
+            } else if token.type == String(OperationType.Divide) {
+                self.eat(String(OperationType.Divide))
+            }
+            
+            let node = BinaryOperation(left: node, op: token, right: self.factor())
+        }
+        
+        return node
+    }
+    
+    func expr() {
+        let node = self.term()
+        
+        while self.currentToken.type == String(OperationType.Plus) || self.currentToken.type == String(OperationType.Minus) {
+            let token = self.currentToken
+            if token.type == String(OperationType.Plus) {
+                self.eat(String(OperationType.Plus))
+            } else if token.type == String(OperationType.Minus) {
+                self.eat(String(OperationType.Minus))
+            }
+        }
+        
+        return node
+    }
+    
+    func parse() -> Number {
+        return self.expr()
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
