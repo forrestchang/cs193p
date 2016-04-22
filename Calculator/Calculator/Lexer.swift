@@ -38,7 +38,7 @@ class Lexer {
     func operand() -> Token {
         var result = ""
         
-        while self.currentChar != nil && (isDigit(self.currentChar!) || self.currentChar == ".") {
+        while self.currentChar != nil && (isDigit(self.currentChar!) || self.currentChar! == ".") {
             result = "\(result)\(self.currentChar!)"
             self.advance()
         }
