@@ -12,6 +12,7 @@
 		06A5CFA71CC521F90022F3A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06A5CFA61CC521F90022F3A2 /* Assets.xcassets */; };
 		06A5CFAA1CC521F90022F3A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A5CFA81CC521F90022F3A2 /* LaunchScreen.storyboard */; };
 		06A5CFB31CC522680022F3A2 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A5CFB21CC522680022F3A2 /* CalculatorViewController.swift */; };
+		06A5CFB51CC891470022F3A2 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A5CFB41CC891470022F3A2 /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		06A5CFA91CC521F90022F3A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06A5CFAB1CC521F90022F3A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06A5CFB21CC522680022F3A2 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		06A5CFB41CC891470022F3A2 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				06A5CFA31CC521F90022F3A2 /* Main.storyboard */,
 				06A5CFB21CC522680022F3A2 /* CalculatorViewController.swift */,
+				06A5CFB41CC891470022F3A2 /* CalculatorBrain.swift */,
 				06A5CFB11CC522110022F3A2 /* Support */,
 			);
 			path = Calculator;
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06A5CFB51CC891470022F3A2 /* CalculatorBrain.swift in Sources */,
 				06A5CFB31CC522680022F3A2 /* CalculatorViewController.swift in Sources */,
 				06A5CFA01CC521F90022F3A2 /* AppDelegate.swift in Sources */,
 			);

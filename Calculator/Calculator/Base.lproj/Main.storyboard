@@ -21,14 +21,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvR-1E-NHH">
                                 <rect key="frame" x="20" y="28" width="560" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clt-73-eih">
                                 <rect key="frame" x="74" y="206" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="7">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ra0-MY-adX"/>
@@ -38,7 +38,7 @@
                                 <rect key="frame" x="128" y="206" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="8">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DKa-dr-ltl"/>
@@ -48,7 +48,7 @@
                                 <rect key="frame" x="182" y="206" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="9">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RZt-7i-HSS"/>
@@ -58,7 +58,7 @@
                                 <rect key="frame" x="236" y="206" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="+">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bzo-D3-YKJ"/>
@@ -68,7 +68,7 @@
                                 <rect key="frame" x="236" y="255" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="−">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wnj-bl-D3E"/>
@@ -78,7 +78,7 @@
                                 <rect key="frame" x="236" y="304" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="×">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yrL-8j-Icr"/>
@@ -88,7 +88,7 @@
                                 <rect key="frame" x="236" y="353" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="÷">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B8M-G2-BY7"/>
@@ -98,7 +98,7 @@
                                 <rect key="frame" x="74" y="255" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="4">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JqG-Dx-l2v"/>
@@ -108,7 +108,7 @@
                                 <rect key="frame" x="128" y="255" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="5">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i79-6o-wjg"/>
@@ -118,7 +118,7 @@
                                 <rect key="frame" x="182" y="255" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="6">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q0k-7L-uZb"/>
@@ -128,7 +128,7 @@
                                 <rect key="frame" x="74" y="304" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="1">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c8K-VP-zCV"/>
@@ -138,7 +138,7 @@
                                 <rect key="frame" x="128" y="304" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="2">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1P3-YN-IBF"/>
@@ -148,7 +148,7 @@
                                 <rect key="frame" x="182" y="304" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="3">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0xM-gZ-0lP"/>
@@ -158,7 +158,7 @@
                                 <rect key="frame" x="182" y="353" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="=">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="enter" destination="BYZ-38-t0r" eventType="touchUpInside" id="WV1-0i-bwT"/>
@@ -168,7 +168,7 @@
                                 <rect key="frame" x="128" y="353" width="46" height="41"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <state key="normal" title="0">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9ma-Of-Xeg"/>
@@ -177,7 +177,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8E-CR-zhy">
                                 <rect key="frame" x="20" y="72" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
