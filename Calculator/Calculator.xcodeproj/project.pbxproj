@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		069E12AC1CC9B882009DD3FA /* Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E12AB1CC9B882009DD3FA /* Interpreter.swift */; };
 		069E12AE1CCA09C4009DD3FA /* CalculatorDataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E12AD1CCA09C4009DD3FA /* CalculatorDataStructure.swift */; };
 		069E12B11CCA10D2009DD3FA /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E12B01CCA10D2009DD3FA /* Lexer.swift */; };
 		069E12B31CCA436B009DD3FA /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E12B21CCA436B009DD3FA /* Parser.swift */; };
@@ -20,7 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		069E12AB1CC9B882009DD3FA /* Interpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
 		069E12AD1CCA09C4009DD3FA /* CalculatorDataStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorDataStructure.swift; sourceTree = "<group>"; };
 		069E12B01CCA10D2009DD3FA /* Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
 		069E12B21CCA436B009DD3FA /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 				06A5CFB21CC522680022F3A2 /* CalculatorViewController.swift */,
 				06A5CFB41CC891470022F3A2 /* CalculatorBrain.swift */,
 				069E12AF1CCA09F0009DD3FA /* Interpreter */,
-				069E12AB1CC9B882009DD3FA /* Interpreter.swift */,
 				06A5CFB11CC522110022F3A2 /* Support */,
 			);
 			path = Calculator;
@@ -167,7 +164,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				069E12AC1CC9B882009DD3FA /* Interpreter.swift in Sources */,
 				06A5CFB51CC891470022F3A2 /* CalculatorBrain.swift in Sources */,
 				069E12AE1CCA09C4009DD3FA /* CalculatorDataStructure.swift in Sources */,
 				06A5CFB31CC522680022F3A2 /* CalculatorViewController.swift in Sources */,
