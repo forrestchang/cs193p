@@ -7,3 +7,25 @@
 //
 
 import Foundation
+
+class Parser {
+    let tokens: [Token]
+    var index = 0
+    
+    init(tokens: [Token]) {
+        self.tokens = tokens
+    }
+    
+    var tokenAvaliable: Bool {
+        return index < tokens.count
+    }
+    
+    func peekCurrentToken() -> Token {
+        return tokens[index]
+    }
+    
+    func popCurrentToken() -> Token {
+        index += 1
+        return tokens[index]
+    }
+}

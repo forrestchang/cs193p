@@ -27,3 +27,38 @@ extension Character {
         return scalars[scalars.startIndex].value
     }
 }
+
+// CFG
+// expr -> term | expr add_op term
+// term -> factor | term mult_op factor
+// factor -> id | number | ( expr )
+// add_op -> + | -
+// mult_op -> * | /
+
+protocol ExprNode: CustomStringConvertible {
+    
+}
+
+struct NumberNode: ExprNode {
+    let value: Double
+    var description: String {
+        return "NumberNode(\(value))"
+    }
+}
+
+struct IdNode: ExprNode {
+    let name: String
+    var description: String {
+        return "IdNode(\(name))"
+    }
+}
+
+struct BinaryOpNode: ExprNode {
+    let op: String
+    let left: ExprNode
+    let right: ExprNode
+    var description: String {
+        return "BinaryOpNode(\(op), left: \(left), right: \(right))"
+    }
+}
+
