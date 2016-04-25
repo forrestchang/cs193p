@@ -18,6 +18,7 @@ enum Token {
     case LeftParenthesis
     case RightParenthesis
     case SquareRoot
+    case Other
 }
 
 extension Character {
@@ -61,4 +62,5 @@ struct BinaryOpNode: ExprNode {
         return "BinaryOpNode(\(op), left: \(left), right: \(right))"
     }
 }
+
 
