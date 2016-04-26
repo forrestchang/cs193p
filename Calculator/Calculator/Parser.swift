@@ -31,18 +31,18 @@ class Parser {
         }
     }
     
-    func factor() -> ExprNode? {
+    func factor() -> Double? {
         let token = self.currentToken
         
         switch token {
         case .Number(let value):
             self.eat(.Number(value))
-            return NumberNode(token: token)
+            return NumberNode(token: token).value
         case .LeftParenthesis:
             self.eat(.LeftParenthesis)
-            let node = self.expr()
+            let result = self.expr()
             self.eat(.RightParenthesis)
-            return node
+            return result
         default:
             break
         }
@@ -50,8 +50,8 @@ class Parser {
         return nil
     }
     
-    func term() -> ExprNode? {
-        var node = self.factor()
+    func term() -> Double {
+        var result = self.factor()
         
         while self.currentToken == Token.Multiply || self.currentToken == Token.Divide {
             let token = self.currentToken
@@ -59,20 +59,21 @@ class Parser {
             switch token {
             case .Multiply:
                 self.eat(Token.Multiply)
+                result = result! * self.factor()!
             case .Divide:
                 self.eat(Token.Divide)
+                result = result! / self.factor()!
             default:
                 break
             }
             
-            node = BinaryOpNode(op: token, left: node!, right: self.factor()!)
         }
         
-        return node
+        return result!
     }
     
-    func expr() -> ExprNode {
-        var node = self.term()
+    func expr() -> Double {
+        var result = self.term()
         
         while self.currentToken == Token.Plus || self.currentToken == Token.Minus {
             let token = self.currentToken
@@ -80,20 +81,17 @@ class Parser {
             switch token {
             case .Plus:
                 self.eat(Token.Plus)
+                result = result + self.term()
             case .Minus:
                 self.eat(Token.Minus)
+                result = result - self.term()
             default:
                 break
             }
             
-            node = BinaryOpNode(op: token, left: node!, right: self.term()!)
         }
         
-        return node!
-    }
-    
-    func parse() -> ExprNode {
-        return self.expr()
+        return result
     }
 
 }
