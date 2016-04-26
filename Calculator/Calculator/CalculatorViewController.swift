@@ -60,15 +60,11 @@ class CalculatorViewController: UIViewController {
             displayNumber = 0
         }
         
-        let lexer = Lexer(text: "1+2 − 4 ÷(4 −6)")
+        let lexer = Lexer(text: "1+2+3")
         var tokens = [Token]()
         
-        while lexer.currentChar != nil {
-            tokens.append(lexer.getNextToken())
-            //lexer.advance()
-        }
-        
-        print(tokens)
+        let parser = Parser(lexer: lexer)
+        print(parser.expr())
         
 //        typedNumber = ""
     }

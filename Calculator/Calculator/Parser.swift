@@ -20,9 +20,9 @@ class Parser {
     var lexer: Lexer
     var currentToken: Token
     
-    init(lexer: Lexer, currentToken: Token) {
+    init(lexer: Lexer) {
         self.lexer = lexer
-        self.currentToken = currentToken
+        self.currentToken = self.lexer.getNextToken()
     }
     
     func eat(tokenType: Token) {
