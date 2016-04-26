@@ -99,7 +99,7 @@ struct BinaryOpNode: ExprNode {
     let left: ExprNode
     let right: ExprNode
     var description: String {
-        return "BinaryOpNode(\(op), left: \(left), right: \(right))"
+        return "BinaryOpNode(left: \(left), \(op), right: \(right))"
     }
 }
 

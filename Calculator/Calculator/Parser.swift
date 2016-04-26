@@ -71,7 +71,7 @@ class Parser {
         return node
     }
     
-    func expr() -> ExprNode? {
+    func expr() -> ExprNode {
         var node = self.term()
         
         while self.currentToken == Token.Plus || self.currentToken == Token.Minus {
@@ -89,11 +89,11 @@ class Parser {
             node = BinaryOpNode(op: token, left: node!, right: self.term()!)
         }
         
-        return node
+        return node!
     }
     
     func parse() -> ExprNode {
-        return self.expr()!
+        return self.expr()
     }
 
 }
