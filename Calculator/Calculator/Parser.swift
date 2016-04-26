@@ -17,80 +17,85 @@ enum ParserError: ErrorType {
 }
 
 class Parser {
-    let tokens: [Token]
-    var index = 0
+    var lexer: Lexer
+    var currentToken: Token
     
-    let operatorPrecedence: [String: Int] = [
-        "+": 20,
-        "−": 20,
-        "×": 40,
-        "÷": 40
-    ]
-    
-    init(tokens: [Token]) {
-        self.tokens = tokens
+    init(lexer: Lexer, currentToken: Token) {
+        self.lexer = lexer
+        self.currentToken = currentToken
     }
     
-    var tokenAvaliable: Bool {
-        return index < tokens.count
-    }
-    
-    func peekCurrentToken() -> Token {
-        return tokens[index]
-    }
-    
-    func popCurrentToken() -> Token {
-        index += 1
-        return tokens[index]
-    }
-    
-    func parseNumber() throws -> ExprNode {
-        guard case let Token.Number(value) = popCurrentToken() else {
-            throw ParserError.ExpectedNumber
+    func eat(tokenType: Token) {
+        if self.currentToken == tokenType {
+            self.currentToken = self.lexer.getNextToken()
         }
-        return  NumberNode(value: value)
     }
     
-    func parseExpression() throws -> ExprNode {
+    func factor() -> ExprNode? {
+        let token = self.currentToken
         
-    }
-    
-    func parseParens() throws -> ExprNode {
-        guard case Token.LeftParenthesis = popCurrentToken() else {
-            throw ParserError.ExpectedCharacter("(")
-        }
-        
-        let exp = try parseExpression()
-        
-        guard case Token.RightParenthesis = popCurrentToken() else {
-            throw ParserError.ExpectedCharacter(")")
-        }
-        
-        return exp
-    }
-    
-    func parsePrimary() throws -> ExprNode {
-        switch (peekCurrentToken()) {
-        case .Number:
-            return try parseNumber()
+        switch token {
+        case .Number(let value):
+            self.eat(.Number(value))
+            return NumberNode(token: token)
         case .LeftParenthesis:
-            return try parseParens()
+            self.eat(.LeftParenthesis)
+            let node = self.expr()
+            self.eat(.RightParenthesis)
+            return node
         default:
-            throw ParserError.ExpectedExpression
+            break
         }
+        
+        return nil
     }
     
-    func getCurrentTokenPrecedence() throws -> Int {
-        guard tokenAvaliable else {
-            return -1
+    func term() -> ExprNode? {
+        var node = self.factor()
+        
+        while self.currentToken == Token.Multiply || self.currentToken == Token.Divide {
+            let token = self.currentToken
+            
+            switch token {
+            case .Multiply:
+                self.eat(Token.Multiply)
+            case .Divide:
+                self.eat(Token.Divide)
+            default:
+                break
+            }
+            
+            node = BinaryOpNode(op: token, left: node!, right: self.factor()!)
         }
         
-        guard case let Token.Other(op) = peekCurrentToken() else {
-            return -1
-        }
-        
-        return precedence
+        return node
     }
+    
+    func expr() -> ExprNode? {
+        var node = self.term()
+        
+        while self.currentToken == Token.Plus || self.currentToken == Token.Minus {
+            let token = self.currentToken
+            
+            switch token {
+            case .Plus:
+                self.eat(Token.Plus)
+            case .Minus:
+                self.eat(Token.Minus)
+            default:
+                break
+            }
+            
+            node = BinaryOpNode(op: token, left: node!, right: self.term()!)
+        }
+        
+        return node
+    }
+    
+    func parse() -> ExprNode {
+        return self.expr()!
+    }
+
 }
 
 

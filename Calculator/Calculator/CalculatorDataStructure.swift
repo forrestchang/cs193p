@@ -19,6 +19,42 @@ enum Token {
     case RightParenthesis
     case SquareRoot
     case Other
+    
+    func get() -> Double? {
+        switch self {
+        case .Number(let number):
+            return number
+        default:
+            break
+        }
+        
+        return nil
+    }
+}
+
+func ==(a: Token, b: Token) -> Bool {
+    switch (a, b) {
+    case (.Number, .Number):
+        return true
+    case (.EOF, .EOF):
+        return true
+    case (.Plus, .Plus):
+        return true
+    case (.Minus, .Minus):
+        return true
+    case (.Multiply, .Multiply):
+        return true
+    case (.Divide, .Divide):
+        return true
+    case (.LeftParenthesis, .LeftParenthesis):
+        return true
+    case (.RightParenthesis, .RightParenthesis):
+        return true
+    case (.SquareRoot, .SquareRoot):
+        return true
+    default:
+        return false
+    }
 }
 
 extension Character {
@@ -45,6 +81,10 @@ struct NumberNode: ExprNode {
     var description: String {
         return "NumberNode(\(value))"
     }
+    
+    init(token: Token) {
+        self.value = token.get()!
+    }
 }
 
 struct IdNode: ExprNode {
@@ -55,7 +95,7 @@ struct IdNode: ExprNode {
 }
 
 struct BinaryOpNode: ExprNode {
-    let op: String
+    let op: Token
     let left: ExprNode
     let right: ExprNode
     var description: String {
