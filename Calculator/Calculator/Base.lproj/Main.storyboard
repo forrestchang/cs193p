@@ -168,6 +168,14 @@
                                     <action selector="textButton:" destination="QJF-I2-P3J" eventType="touchUpInside" id="azM-r5-Dxa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kt0-F2-pXC">
+                                <rect key="frame" x="172" y="189" width="30" height="55"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                <state key="normal" title="C"/>
+                                <connections>
+                                    <action selector="clear" destination="QJF-I2-P3J" eventType="touchUpInside" id="ngo-aa-59H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

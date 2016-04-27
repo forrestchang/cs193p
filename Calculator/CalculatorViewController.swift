@@ -17,16 +17,8 @@ class CalculatorViewController: UIViewController {
     var opStack = [String]()
 
     @IBAction func textButton(sender: UIButton) {
-        let digit = sender.currentTitle!
-        
-        if hasTyeped {
-            display.text = display.text! + digit
-        } else {
-            display.text = digit
-            hasTyeped = true
-        }
-        
         opStack.append(sender.currentTitle!)
+        display.text = opStack.joinWithSeparator("")
     }
     
     @IBAction func enter() {
@@ -34,14 +26,24 @@ class CalculatorViewController: UIViewController {
         
         if opStack.count >= 1 {
             text = opStack.joinWithSeparator("")
-            let lexer = Lexer(text: text)
-            let parser = Parser(lexer: lexer)
-            let result = parser.expr()
-        
+            let result = calculate(text)
             display.text = String(result)
-        
             opStack = [String]()
         }
     }
     
+    @IBAction func clear() {
+        if opStack.count > 0 {
+            opStack.removeLast()
+            display.text = opStack.joinWithSeparator("")
+        }
+    }
+    
+    func calculate(text: String) -> Double {
+        let lexer = Lexer(text: text)
+        let parser = Parser(lexer: lexer)
+        let result = parser.expr()
+        
+        return result
+    }
 }
