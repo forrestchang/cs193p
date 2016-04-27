@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0610DC7E1CD0D29A004821CC /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0610DC7D1CD0D29A004821CC /* CalculatorViewController.swift */; };
+		0610DC801CD0E5D9004821CC /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0610DC7F1CD0E5D9004821CC /* CalculatorViewController.swift */; };
 		069E12AE1CCA09C4009DD3FA /* CalculatorDataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E12AD1CCA09C4009DD3FA /* CalculatorDataStructure.swift */; };
 		069E12B11CCA10D2009DD3FA /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E12B01CCA10D2009DD3FA /* Lexer.swift */; };
 		069E12B31CCA436B009DD3FA /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E12B21CCA436B009DD3FA /* Parser.swift */; };
@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0610DC7D1CD0D29A004821CC /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = SOURCE_ROOT; };
+		0610DC7F1CD0E5D9004821CC /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		069E12AD1CCA09C4009DD3FA /* CalculatorDataStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorDataStructure.swift; sourceTree = "<group>"; };
 		069E12B01CCA10D2009DD3FA /* Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
 		069E12B21CCA436B009DD3FA /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 			children = (
 				06A5CFA31CC521F90022F3A2 /* Main.storyboard */,
 				06A5CFB41CC891470022F3A2 /* CalculatorBrain.swift */,
-				0610DC7D1CD0D29A004821CC /* CalculatorViewController.swift */,
+				0610DC7F1CD0E5D9004821CC /* CalculatorViewController.swift */,
 				069E12AF1CCA09F0009DD3FA /* Interpreter */,
 				06A5CFB11CC522110022F3A2 /* Support */,
 			);
@@ -168,7 +168,7 @@
 				069E12AE1CCA09C4009DD3FA /* CalculatorDataStructure.swift in Sources */,
 				069E12B11CCA10D2009DD3FA /* Lexer.swift in Sources */,
 				06A5CFA01CC521F90022F3A2 /* AppDelegate.swift in Sources */,
-				0610DC7E1CD0D29A004821CC /* CalculatorViewController.swift in Sources */,
+				0610DC801CD0E5D9004821CC /* CalculatorViewController.swift in Sources */,
 				069E12B31CCA436B009DD3FA /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
