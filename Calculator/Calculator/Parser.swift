@@ -14,57 +14,57 @@ enum ParserError: ErrorType {
     case ExpectedCharacter(Character)
     case ExpectedExpression
     case UndefinedOperator(String)
+    case ExpectedError
 }
 
 class Parser {
     var lexer: Lexer
     var currentToken: Token
     
-    init(lexer: Lexer) {
+    init(lexer: Lexer) throws {
         self.lexer = lexer
-        self.currentToken = self.lexer.getNextToken()
+        self.currentToken = try self.lexer.getNextToken()
     }
     
-    func eat(tokenType: Token) {
+    func eat(tokenType: Token) throws {
         if self.currentToken == tokenType {
-            self.currentToken = self.lexer.getNextToken()
+            self.currentToken = try self.lexer.getNextToken()
         }
     }
     
-    func factor() -> Double? {
+    func factor() throws -> Double? {
         let token = self.currentToken
         
         switch token {
         case .Number(let value):
-            self.eat(.Number(value))
+            try self.eat(.Number(value))
             return NumberNode(token: token).value
         case .LeftParenthesis:
-            self.eat(.LeftParenthesis)
-            let result = self.expr()
-            self.eat(.RightParenthesis)
+            try self.eat(.LeftParenthesis)
+            let result = try self.expr()
+            try self.eat(.RightParenthesis)
             return result
         default:
-            break
+            throw ParserError.ExpectedError
         }
-        
-        return nil
+
     }
     
-    func term() -> Double {
-        var result = self.factor()
+    func term() throws -> Double {
+        var result = try self.factor()
         
         while self.currentToken == Token.Multiply || self.currentToken == Token.Divide {
             let token = self.currentToken
             
             switch token {
             case .Multiply:
-                self.eat(Token.Multiply)
-                result = result! * self.factor()!
+                try self.eat(Token.Multiply)
+                result = try result! * self.factor()!
             case .Divide:
-                self.eat(Token.Divide)
-                result = result! / self.factor()!
+                try self.eat(Token.Divide)
+                result = try result! / self.factor()!
             default:
-                break
+                throw ParserError.ExpectedError
             }
             
         }
@@ -72,21 +72,21 @@ class Parser {
         return result!
     }
     
-    func expr() -> Double {
-        var result = self.term()
+    func expr() throws -> Double {
+        var result = try self.term()
         
         while self.currentToken == Token.Plus || self.currentToken == Token.Minus {
             let token = self.currentToken
             
             switch token {
             case .Plus:
-                self.eat(Token.Plus)
-                result = result + self.term()
+                try self.eat(Token.Plus)
+                result = try result + self.term()
             case .Minus:
-                self.eat(Token.Minus)
-                result = result - self.term()
+                try self.eat(Token.Minus)
+                result = try result - self.term()
             default:
-                break
+                throw ParserError.ExpectedError
             }
             
         }

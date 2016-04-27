@@ -26,9 +26,10 @@ class CalculatorViewController: UIViewController {
         
         if opStack.count >= 1 {
             text = opStack.joinWithSeparator("")
-            let result = calculate(text)
-            display.text = String(result)
-            opStack = [String]()
+            if let result = calculate(text) {
+                display.text = String(result)
+                //opStack = [String]()
+            }
         }
     }
     
@@ -36,14 +37,24 @@ class CalculatorViewController: UIViewController {
         if opStack.count > 0 {
             opStack.removeLast()
             display.text = opStack.joinWithSeparator("")
+        } else {
+            display.text = String(0)
         }
     }
     
-    func calculate(text: String) -> Double {
+    func calculate(text: String) -> Double? {
         let lexer = Lexer(text: text)
-        let parser = Parser(lexer: lexer)
-        let result = parser.expr()
         
-        return result
+        do {
+            let parser = try Parser(lexer: lexer)
+            let result = try parser.expr()
+            opStack = []
+            return result
+        } catch {
+            display.text = "Error!"
+            opStack = []
+        }
+        
+        return nil
     }
 }

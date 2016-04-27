@@ -35,7 +35,7 @@ class Lexer {
         }
     }
     
-    func operand() -> Token {
+    func operand() throws -> Token {
         var result = ""
         
         while self.currentChar != nil && (isDigit(self.currentChar!) || self.currentChar! == ".") {
@@ -43,10 +43,14 @@ class Lexer {
             self.advance()
         }
         
-        return Token.Number(Double(result)!)
+        if let number = Double(result) {
+            return Token.Number(number)
+        } else {
+            throw ParserError.ExpectedError
+        }
     }
     
-    func getNextToken() -> Token {
+    func getNextToken() throws -> Token {
         while self.currentChar != nil {
             let currentChar = self.currentChar!
             
@@ -56,7 +60,12 @@ class Lexer {
             }
             
             if isDigit(currentChar) || currentChar == "." {
-                return self.operand()
+                do {
+                    let result = try self.operand()
+                    return result
+                } catch {
+                    throw ParserError.ExpectedError
+                }
             }
             
             if currentChar == "+" {
